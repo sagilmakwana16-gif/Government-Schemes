@@ -1,13 +1,8 @@
 from flask import Flask, render_template, jsonify, request
 
 from ai_services.servam_api import generate_answer
-<<<<<<< HEAD
-from utils.pdf_to_read import pdf_to_read_extract
-from utils.chroma_dab_confing import (
-=======
 from utils.pdf_to_read import pdf_to_text_extract
 from utils.chroma_db_config import (
->>>>>>> 1671daa284be8d5f44e7f97c31b551b0711cc43c
     query_vector_store,
     get_collection_stats,
     get_or_create_collection
@@ -54,12 +49,8 @@ def get_response():
         })
 
     # Retrieve top relevant context chunks from ChromaDB PersistentClient
-<<<<<<< HEAD
-    chunks = query_vector_store(user_message, n_results=5)     # Format deduplicated sources for the UI
-=======
     chunks = query_vector_store(user_message, n_results=5)
      # Format deduplicated sources for the UI
->>>>>>> 1671daa284be8d5f44e7f97c31b551b0711cc43c
     sources = []
     seen_sources = set()
     for chunk in chunks:

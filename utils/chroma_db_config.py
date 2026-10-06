@@ -105,7 +105,7 @@ def add_chunks_to_vector_store(chunks: List[Dict[str, Any]], collection=None) ->
 
 def query_vector_store(
     query_text: str,
-    n_results: int = 3,
+    n_results: int = 5,
     collection=None
 ) -> List[Dict[str, Any]]:
     """

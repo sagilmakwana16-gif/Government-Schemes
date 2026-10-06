@@ -49,7 +49,7 @@ def get_response():
         })
 
     # Retrieve top relevant context chunks from ChromaDB PersistentClient
-    chunks = query_vector_store(user_message, n_results=3)
+    chunks = query_vector_store(user_message, n_results=5)
      # Format deduplicated sources for the UI
     sources = []
     seen_sources = set()

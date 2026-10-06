@@ -52,4 +52,8 @@ def generate_answer(user_message: str, context: Union[str, List[Dict[str, Any]]]
         return response.choices[0].message.content
 
     except Exception as e:
+<<<<<<< HEAD
         return f"An error occurred while generating the answer: {str(e)}"
+=======
+        return f"An error occurred while generating the answer: {str(e)}"
+>>>>>>> 1671daa284be8d5f44e7f97c31b551b0711cc43c

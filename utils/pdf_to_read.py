@@ -97,14 +97,12 @@ def chunk_pages(pages_data, chunk_size=700, chunk_overlap=150):
             if start >= len(text) or end >= len(text):
                 break
 
+
     return chunks
 
 
-<<<<<<< HEAD
-def pdf_to_read_extract(pdf_path):
-=======
+
 def pdf_to_text_extract(pdf_path):
->>>>>>> 1671daa284be8d5f44e7f97c31b551b0711cc43c
     """
     Legacy helper: Extracts and concatenates text from all pages of the PDF.
     Maintained for backwards-compatibility.

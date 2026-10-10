@@ -3,11 +3,7 @@ import argparse
 from typing import Optional
 import chromadb
 from utils.pdf_to_read import extract_pdf_pages, chunk_pages
-<<<<<<< HEAD
-from utils.chroma_dab_confing import (
-=======
 from utils.chroma_db_config import (
->>>>>>> 1671daa284be8d5f44e7f97c31b551b0711cc43c
     get_or_create_collection,
     add_chunks_to_vector_store,
     get_collection_stats,

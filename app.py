@@ -1,5 +1,4 @@
 from flask import Flask, render_template, jsonify, request
-
 from ai_services.servam_api import generate_answer
 from utils.pdf_to_read import pdf_to_text_extract
 from utils.chroma_db_config import (

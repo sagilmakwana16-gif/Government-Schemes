@@ -1,0 +1,140 @@
+[2026-10-10 09:44:52] [INFO] [werkzeug:97] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2026-10-10 09:44:52] [INFO] [werkzeug:97] - [33mPress CTRL+C to quit[0m
+[2026-10-10 09:44:52] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-10 09:44:53] [WARNING] [werkzeug:97] -  * Debugger is active!
+[2026-10-10 09:44:53] [INFO] [werkzeug:97] -  * Debugger PIN: 982-726-500
+[2026-10-10 09:44:57] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 09:44:57] "GET / HTTP/1.1" 200 -
+[2026-10-10 09:47:08] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 09:47:08] "GET / HTTP/1.1" 200 -
+[2026-10-10 09:47:34] [INFO] [app:48] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=14]
+[2026-10-10 09:47:35] [INFO] [httpx:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents "HTTP/1.1 200 OK"
+[2026-10-10 09:47:38] [INFO] [httpx:1025] - HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-10-10 09:47:38] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 09:47:38] "POST /get_response HTTP/1.1" 200 -
+[2026-10-10 09:49:54] [INFO] [werkzeug:97] -  * Detected change in 'd:\\casestudy project\\Government-Schemes\\ai_services\\servam_api.py', reloading
+[2026-10-10 09:49:54] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-10 09:49:56] [WARNING] [werkzeug:97] -  * Debugger is active!
+[2026-10-10 09:49:56] [INFO] [werkzeug:97] -  * Debugger PIN: 982-726-500
+[2026-10-10 09:50:05] [INFO] [werkzeug:97] -  * Detected change in 'd:\\casestudy project\\Government-Schemes\\ai_services\\servam_api.py', reloading
+[2026-10-10 09:50:06] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-10 09:50:07] [WARNING] [werkzeug:97] -  * Debugger is active!
+[2026-10-10 09:50:07] [INFO] [werkzeug:97] -  * Debugger PIN: 982-726-500
+[2026-10-10 09:50:11] [INFO] [werkzeug:97] -  * Detected change in 'd:\\casestudy project\\Government-Schemes\\ai_services\\servam_api.py', reloading
+[2026-10-10 09:50:11] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-10 11:02:03] [INFO] [app:37] - Chroma knowledge base ready with 47 chunk(s).
+[2026-10-10 11:02:03] [INFO] [db:36] - Initializing SQLite database at 'D:\casestudy project\Government-Schemes\data\conversations.db'...
+[2026-10-10 11:02:03] [INFO] [db:54] - SQLite database tables and indexes verified successfully.
+[2026-10-10 11:02:03] [INFO] [app:47] - SQLite conversation history database initialized.
+[2026-10-10 11:02:04] [INFO] [werkzeug:97] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2026-10-10 11:02:04] [INFO] [werkzeug:97] - [33mPress CTRL+C to quit[0m
+[2026-10-10 11:02:04] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-10 11:02:05] [INFO] [app:37] - Chroma knowledge base ready with 47 chunk(s).
+[2026-10-10 11:02:05] [INFO] [db:36] - Initializing SQLite database at 'D:\casestudy project\Government-Schemes\data\conversations.db'...
+[2026-10-10 11:02:05] [INFO] [db:54] - SQLite database tables and indexes verified successfully.
+[2026-10-10 11:02:05] [INFO] [app:47] - SQLite conversation history database initialized.
+[2026-10-10 11:02:05] [WARNING] [werkzeug:97] -  * Debugger is active!
+[2026-10-10 11:02:05] [INFO] [werkzeug:97] -  * Debugger PIN: 982-726-500
+[2026-10-10 11:02:16] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:02:16] "GET / HTTP/1.1" 200 -
+[2026-10-10 11:02:42] [INFO] [app:63] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=14]
+[2026-10-10 11:02:43] [INFO] [httpx:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents "HTTP/1.1 200 OK"
+[2026-10-10 11:02:43] [INFO] [chroma_db_config.py:162] - Vector query returned 3 relevant chunk(s).
+[2026-10-10 11:02:43] [INFO] [servam_api.py:86] - Requesting answer using model 'sarvam-105b' (history_turns=0, context_len=2014 chars)
+[2026-10-10 11:02:49] [INFO] [httpx:1025] - HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-10-10 11:02:49] [INFO] [servam_api.py:106] - Sarvam response generated successfully in 5527 ms (33 chars)
+[2026-10-10 11:02:49] [INFO] [db:84] - Saved conversation entry [ID: 1] for session 'default' (question: JSSK full name...)
+[2026-10-10 11:02:49] [INFO] [app:110] - /get_response completed in 6873 ms [session_id='default', reply_len=33, sources_count=1]
+[2026-10-10 11:02:49] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:02:49] "POST /get_response HTTP/1.1" 200 -
+[2026-10-10 11:03:33] [INFO] [app:63] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=10]
+[2026-10-10 11:03:34] [INFO] [httpx:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents "HTTP/1.1 200 OK"
+[2026-10-10 11:03:34] [INFO] [chroma_db_config.py:162] - Vector query returned 3 relevant chunk(s).
+[2026-10-10 11:03:34] [INFO] [servam_api.py:86] - Requesting answer using model 'sarvam-105b' (history_turns=1, context_len=719 chars)
+[2026-10-10 11:03:47] [INFO] [httpx:1025] - HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-10-10 11:03:47] [ERROR] [servam_api.py:115] - Primary generation using 'sarvam-105b' failed after 13379 ms (object of type 'NoneType' has no len()).
+[2026-10-10 11:03:47] [INFO] [db:84] - Saved conversation entry [ID: 2] for session 'default' (question: I am sagil...)
+[2026-10-10 11:03:47] [INFO] [app:110] - /get_response completed in 14623 ms [session_id='default', reply_len=85, sources_count=1]
+[2026-10-10 11:03:47] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:03:47] "POST /get_response HTTP/1.1" 200 -
+[2026-10-10 11:04:14] [INFO] [app:37] - Chroma knowledge base ready with 47 chunk(s).
+[2026-10-10 11:04:14] [INFO] [db:36] - Initializing SQLite database at 'D:\casestudy project\Government-Schemes\data\conversations.db'...
+[2026-10-10 11:04:14] [INFO] [db:54] - SQLite database tables and indexes verified successfully.
+[2026-10-10 11:04:14] [INFO] [app:47] - SQLite conversation history database initialized.
+[2026-10-10 11:04:14] [INFO] [werkzeug:97] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2026-10-10 11:04:14] [INFO] [werkzeug:97] - [33mPress CTRL+C to quit[0m
+[2026-10-10 11:04:14] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-10 11:04:16] [INFO] [app:37] - Chroma knowledge base ready with 47 chunk(s).
+[2026-10-10 11:04:16] [INFO] [db:36] - Initializing SQLite database at 'D:\casestudy project\Government-Schemes\data\conversations.db'...
+[2026-10-10 11:04:16] [INFO] [db:54] - SQLite database tables and indexes verified successfully.
+[2026-10-10 11:04:16] [INFO] [app:47] - SQLite conversation history database initialized.
+[2026-10-10 11:04:16] [WARNING] [werkzeug:97] -  * Debugger is active!
+[2026-10-10 11:04:16] [INFO] [werkzeug:97] -  * Debugger PIN: 982-726-500
+[2026-10-10 11:04:19] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:04:19] "GET / HTTP/1.1" 200 -
+[2026-10-10 11:04:26] [INFO] [app:63] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=8]
+[2026-10-10 11:04:27] [INFO] [httpx:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents "HTTP/1.1 200 OK"
+[2026-10-10 11:04:27] [INFO] [chroma_db_config.py:162] - Vector query returned 3 relevant chunk(s).
+[2026-10-10 11:04:27] [INFO] [servam_api.py:86] - Requesting answer using model 'sarvam-105b' (history_turns=2, context_len=707 chars)
+[2026-10-10 11:04:37] [INFO] [httpx:1025] - HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-10-10 11:04:37] [ERROR] [servam_api.py:115] - Primary generation using 'sarvam-105b' failed after 10511 ms (object of type 'NoneType' has no len()).
+[2026-10-10 11:04:37] [INFO] [db:84] - Saved conversation entry [ID: 3] for session 'default' (question: im sagil...)
+[2026-10-10 11:04:37] [INFO] [app:110] - /get_response completed in 11854 ms [session_id='default', reply_len=85, sources_count=1]
+[2026-10-10 11:04:37] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:04:37] "POST /get_response HTTP/1.1" 200 -
+[2026-10-10 11:05:47] [INFO] [werkzeug:97] -  * Detected change in 'D:\\casestudy project\\Government-Schemes\\ai_services\\servam_api.py', reloading
+[2026-10-10 11:05:47] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-10 11:07:04] [INFO] [app:37] - Chroma knowledge base ready with 47 chunk(s).
+[2026-10-10 11:07:04] [INFO] [db:36] - Initializing SQLite database at 'D:\casestudy project\Government-Schemes\data\conversations.db'...
+[2026-10-10 11:07:04] [INFO] [db:54] - SQLite database tables and indexes verified successfully.
+[2026-10-10 11:07:04] [INFO] [app:47] - SQLite conversation history database initialized.
+[2026-10-10 11:07:04] [INFO] [werkzeug:97] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2026-10-10 11:07:04] [INFO] [werkzeug:97] - [33mPress CTRL+C to quit[0m
+[2026-10-10 11:07:04] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-10 11:07:06] [INFO] [app:37] - Chroma knowledge base ready with 47 chunk(s).
+[2026-10-10 11:07:06] [INFO] [db:36] - Initializing SQLite database at 'D:\casestudy project\Government-Schemes\data\conversations.db'...
+[2026-10-10 11:07:06] [INFO] [db:54] - SQLite database tables and indexes verified successfully.
+[2026-10-10 11:07:06] [INFO] [app:47] - SQLite conversation history database initialized.
+[2026-10-10 11:07:06] [WARNING] [werkzeug:97] -  * Debugger is active!
+[2026-10-10 11:07:06] [INFO] [werkzeug:97] -  * Debugger PIN: 982-726-500
+[2026-10-10 11:07:18] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:07:18] "GET / HTTP/1.1" 200 -
+[2026-10-10 11:07:23] [INFO] [app:63] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=8]
+[2026-10-10 11:07:24] [INFO] [httpx:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents "HTTP/1.1 200 OK"
+[2026-10-10 11:07:24] [INFO] [chroma_db_config.py:162] - Vector query returned 3 relevant chunk(s).
+[2026-10-10 11:07:24] [INFO] [servam_api.py:86] - Requesting answer using model 'sarvam-105b' (history_turns=3, context_len=707 chars)
+[2026-10-10 11:07:35] [INFO] [httpx:1025] - HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-10-10 11:07:35] [INFO] [servam_api.py:114] - Sarvam response generated successfully in 10112 ms (17 chars)
+[2026-10-10 11:07:35] [INFO] [db:84] - Saved conversation entry [ID: 4] for session 'default' (question: im sagil...)
+[2026-10-10 11:07:35] [INFO] [app:110] - /get_response completed in 11447 ms [session_id='default', reply_len=17, sources_count=1]
+[2026-10-10 11:07:35] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:07:35] "POST /get_response HTTP/1.1" 200 -
+[2026-10-10 11:09:11] [INFO] [werkzeug:97] -  * Detected change in 'D:\\casestudy project\\Government-Schemes\\ai_services\\servam_api.py', reloading
+[2026-10-10 11:09:11] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-10 11:09:51] [INFO] [app:37] - Chroma knowledge base ready with 47 chunk(s).
+[2026-10-10 11:09:51] [INFO] [db:36] - Initializing SQLite database at 'D:\casestudy project\Government-Schemes\data\conversations.db'...
+[2026-10-10 11:09:51] [INFO] [db:54] - SQLite database tables and indexes verified successfully.
+[2026-10-10 11:09:51] [INFO] [app:47] - SQLite conversation history database initialized.
+[2026-10-10 11:09:51] [INFO] [werkzeug:97] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2026-10-10 11:09:51] [INFO] [werkzeug:97] - [33mPress CTRL+C to quit[0m
+[2026-10-10 11:09:51] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-10 11:09:53] [INFO] [app:37] - Chroma knowledge base ready with 47 chunk(s).
+[2026-10-10 11:09:53] [INFO] [db:36] - Initializing SQLite database at 'D:\casestudy project\Government-Schemes\data\conversations.db'...
+[2026-10-10 11:09:53] [INFO] [db:54] - SQLite database tables and indexes verified successfully.
+[2026-10-10 11:09:53] [INFO] [app:47] - SQLite conversation history database initialized.
+[2026-10-10 11:09:53] [WARNING] [werkzeug:97] -  * Debugger is active!
+[2026-10-10 11:09:53] [INFO] [werkzeug:97] -  * Debugger PIN: 982-726-500
+[2026-10-10 11:09:57] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:09:57] "GET / HTTP/1.1" 200 -
+[2026-10-10 11:10:01] [INFO] [app:63] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=8]
+[2026-10-10 11:10:03] [INFO] [httpx:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents "HTTP/1.1 200 OK"
+[2026-10-10 11:10:03] [INFO] [chroma_db_config.py:162] - Vector query returned 3 relevant chunk(s).
+[2026-10-10 11:10:03] [INFO] [servam_api.py:86] - Requesting answer using model 'sarvam-105b' (history_turns=4, context_len=707 chars)
+[2026-10-10 11:10:05] [INFO] [httpx:1025] - HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-10-10 11:10:05] [INFO] [servam_api.py:114] - Sarvam response generated successfully in 2149 ms (109 chars)
+[2026-10-10 11:10:05] [INFO] [db:84] - Saved conversation entry [ID: 5] for session 'default' (question: im sagil...)
+[2026-10-10 11:10:05] [INFO] [app:110] - /get_response completed in 3605 ms [session_id='default', reply_len=109, sources_count=1]
+[2026-10-10 11:10:05] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:10:05] "POST /get_response HTTP/1.1" 200 -
+[2026-10-10 11:10:18] [INFO] [app:63] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=15]
+[2026-10-10 11:10:19] [INFO] [httpx:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents "HTTP/1.1 200 OK"
+[2026-10-10 11:10:19] [INFO] [chroma_db_config.py:162] - Vector query returned 3 relevant chunk(s).
+[2026-10-10 11:10:19] [INFO] [servam_api.py:86] - Requesting answer using model 'sarvam-105b' (history_turns=5, context_len=615 chars)
+[2026-10-10 11:10:25] [INFO] [httpx:1025] - HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-10-10 11:10:25] [INFO] [servam_api.py:114] - Sarvam response generated successfully in 5974 ms (99 chars)
+[2026-10-10 11:10:25] [INFO] [db:84] - Saved conversation entry [ID: 6] for session 'default' (question: what is my name...)
+[2026-10-10 11:10:25] [INFO] [app:110] - /get_response completed in 7584 ms [session_id='default', reply_len=99, sources_count=1]
+[2026-10-10 11:10:25] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:10:25] "POST /get_response HTTP/1.1" 200 -

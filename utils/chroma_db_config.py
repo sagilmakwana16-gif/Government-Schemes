@@ -1,3 +1,4 @@
+from utils.logger import get_logger
 import os
 from typing import List, Dict, Any, Optional
 import chromadb
@@ -5,6 +6,7 @@ from chromadb.api.types import EmbeddingFunction, Documents, Embeddings
 from google import genai
 from dotenv import load_dotenv
 
+logger = get_logger("chroma_db_config.py")
 load_dotenv()
 
 # Configuration constants
@@ -20,6 +22,7 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
     def __init__(self, api_key: Optional[str] = None, model: str = GEMINI_EMBEDDING_MODEL):
         self.api_key = api_key or os.getenv("GEMINI_API_KEY")
         if not self.api_key:
+            logger.error("GEMINI_API_KEY environment variable is missing for Gemini embeddings.")
             raise ValueError("GEMINI_API_KEY environment variable is required for Gemini embeddings.")
         self.model = model
         self.client = genai.Client(api_key=self.api_key)
@@ -33,6 +36,8 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
 
         embeddings_result: List[List[float]] = []
         batch_size = 20  # Batch to stay well within API limits
+        total_batches = (len(input) + batch_size - 1) // batch_size
+        logger.debug("Embedding %d document(s) in %d batch(es) using '%s'...", len(input), total_batches, self.model)
 
         for i in range(0, len(input), batch_size):
             batch = input[i:i + batch_size]
@@ -42,7 +47,8 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
             )
             for item in response.embeddings:
                 embeddings_result.append(item.values)
-
+            
+        logger.debug("Generated %d embedding vector(s) successfully.", len(embeddings_result))
         return embeddings_result
 
 
@@ -85,6 +91,7 @@ def add_chunks_to_vector_store(chunks: List[Dict[str, Any]], collection=None) ->
     Returns the count of upserted items.
     """
     if not chunks:
+        logger.info("No chunks provided to upsert into vector store.")
         return 0
 
     if collection is None:
@@ -94,12 +101,15 @@ def add_chunks_to_vector_store(chunks: List[Dict[str, Any]], collection=None) ->
     documents = [c["text"] for c in chunks]
     metadatas = [c["metadata"] for c in chunks]
 
+    logger.info("Upserting %d chunk(s) into Chroma collection '%s'...", len(chunks), collection.name)
     # upsert handles both insertion and updating without duplicate errors
     collection.upsert(
         ids=ids,
         documents=documents,
         metadatas=metadatas
+
     )
+    logger.info("Successfully upserted %d chunk(s) into Chroma collection '%s'.", len(chunks), collection.name)
     return len(chunks)
 
 
@@ -115,17 +125,25 @@ def query_vector_store(
     if collection is None:
         collection = get_or_create_collection()
 
-    if collection.count() == 0:
+    total_chunks = collection.count()
+    if total_chunks == 0:
+        logger.warning("Vector store '%s' is empty (count=0). Returning empty results.", collection.name)
         return []
 
     # Ensure n_results does not exceed total documents
-    n_results = min(n_results, collection.count())
+    effective_n_results = min(n_results, total_chunks)
+    logger.debug(
+        "Querying vector store '%s' with query: '%.60s...' (requested=%d, effective=%d, total=%d)",
+        collection.name, query_text, n_results, effective_n_results, total_chunks
+    )
 
     results = collection.query(
         query_texts=[query_text],
-        n_results=n_results
+        n_results=effective_n_results
     )
 
+
+    
     output = []
     if results and "documents" in results and results["documents"]:
         docs = results["documents"][0]
@@ -140,7 +158,8 @@ def query_vector_store(
                 "metadata": meta,
                 "distance": dist
             })
-
+    
+    logger.info("Vector query returned %d relevant chunk(s).", len(output))
     return output
 
 

@@ -138,3 +138,175 @@
 [2026-10-10 11:10:25] [INFO] [db:84] - Saved conversation entry [ID: 6] for session 'default' (question: what is my name...)
 [2026-10-10 11:10:25] [INFO] [app:110] - /get_response completed in 7584 ms [session_id='default', reply_len=99, sources_count=1]
 [2026-10-10 11:10:25] [INFO] [werkzeug:97] - 127.0.0.1 - - [10/Oct/2026 11:10:25] "POST /get_response HTTP/1.1" 200 -
+[2026-10-12 12:08:46] [INFO] [app:37] - Chroma knowledge base ready with 47 chunk(s).
+[2026-10-12 12:08:46] [INFO] [db:36] - Initializing SQLite database at 'd:\casestudy project\Government-Schemes\data\conversations.db'...
+[2026-10-12 12:08:46] [INFO] [db:54] - SQLite database tables and indexes verified successfully.
+[2026-10-12 12:08:46] [INFO] [app:47] - SQLite conversation history database initialized.
+[2026-10-12 12:08:46] [INFO] [werkzeug:97] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[2026-10-12 12:08:46] [INFO] [werkzeug:97] - [33mPress CTRL+C to quit[0m
+[2026-10-12 12:08:46] [INFO] [werkzeug:97] -  * Restarting with stat
+[2026-10-12 12:08:48] [INFO] [app:37] - Chroma knowledge base ready with 47 chunk(s).
+[2026-10-12 12:08:48] [INFO] [db:36] - Initializing SQLite database at 'd:\casestudy project\Government-Schemes\data\conversations.db'...
+[2026-10-12 12:08:48] [INFO] [db:54] - SQLite database tables and indexes verified successfully.
+[2026-10-12 12:08:48] [INFO] [app:47] - SQLite conversation history database initialized.
+[2026-10-12 12:08:48] [WARNING] [werkzeug:97] -  * Debugger is active!
+[2026-10-12 12:08:48] [INFO] [werkzeug:97] -  * Debugger PIN: 982-726-500
+[2026-10-12 12:08:49] [INFO] [werkzeug:97] - 127.0.0.1 - - [12/Oct/2026 12:08:49] "GET / HTTP/1.1" 200 -
+[2026-10-12 12:08:53] [INFO] [app:63] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=1]
+[2026-10-12 12:08:53] [ERROR] [app:121] - Unexpected error processing /get_response for session 'default': [Errno 11001] getaddrinfo failed in query.
+Traceback (most recent call last):
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\st\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\casestudy project\Government-Schemes\app.py", line 80, in get_response
+    chunks = query_vector_store(user_message, n_results=3)
+  File "d:\casestudy project\Government-Schemes\utils\chroma_db_config.py", line 140, in query_vector_store
+    results = collection.query(
+        query_texts=[query_text],
+        n_results=effective_n_results
+    )
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\chromadb\api\models\Collection.py", line 253, in query
+    query_request = self._validate_and_prepare_query_request(
+        query_embeddings=query_embeddings,
+    ...<7 lines>...
+        include=include,
+    )
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\chromadb\api\models\CollectionCommon.py", line 103, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\chromadb\api\models\CollectionCommon.py", line 336, in _validate_and_prepare_query_request
+    request_embeddings = self._embed_record_set(
+        record_set=query_records, is_query=True
+    )
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\chromadb\api\models\CollectionCommon.py", line 736, in _embed_record_set
+    return self._embed(
+           ~~~~~~~~~~~^
+        input=record_set[field],  # type: ignore[literal-required]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        is_query=is_query,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\chromadb\api\models\CollectionCommon.py", line 751, in _embed
+    return self._embedding_function.embed_query(input=input)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\chromadb\api\types.py", line 857, in embed_query
+    return self.__call__(input)
+           ~~~~~~~~~~~~~^^^^^^^
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\chromadb\api\types.py", line 865, in __call__
+    result = call(self, input)
+  File "d:\casestudy project\Government-Schemes\utils\chroma_db_config.py", line 44, in __call__
+    response = self.client.models.embed_content(
+        model=self.model,
+        contents=batch
+    )
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\google\genai\models.py", line 6106, in embed_content
+    return self._embed_content(model=model, contents=contents, config=config)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\google\genai\models.py", line 4917, in _embed_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\google\genai\_api_client.py", line 1750, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\google\genai\_api_client.py", line 1537, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\tenacity\__init__.py", line 413, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\tenacity\__init__.py", line 184, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\st\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\st\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\google\genai\_api_client.py", line 1513, in _request_once
+    response = self._httpx_client.send(httpx_request, stream=stream)  # type: ignore[union-attr, arg-type]
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\st\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\casestudy project\Government-Schemes\venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed in query.
+[2026-10-12 12:08:54] [INFO] [werkzeug:97] - 127.0.0.1 - - [12/Oct/2026 12:08:54] "[35m[1mPOST /get_response HTTP/1.1[0m" 500 -
+[2026-10-12 12:08:59] [INFO] [app:63] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=2]
+[2026-10-12 12:09:00] [INFO] [httpx:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents "HTTP/1.1 200 OK"
+[2026-10-12 12:09:00] [INFO] [chroma_db_config.py:162] - Vector query returned 3 relevant chunk(s).
+[2026-10-12 12:09:00] [INFO] [servam_api.py:86] - Requesting answer using model 'sarvam-105b' (history_turns=5, context_len=602 chars)
+[2026-10-12 12:09:06] [INFO] [httpx:1025] - HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-10-12 12:09:06] [INFO] [servam_api.py:114] - Sarvam response generated successfully in 5671 ms (103 chars)
+[2026-10-12 12:09:06] [INFO] [db:84] - Saved conversation entry [ID: 7] for session 'default' (question: hi...)
+[2026-10-12 12:09:06] [INFO] [app:110] - /get_response completed in 7026 ms [session_id='default', reply_len=103, sources_count=1]
+[2026-10-12 12:09:06] [INFO] [werkzeug:97] - 127.0.0.1 - - [12/Oct/2026 12:09:06] "POST /get_response HTTP/1.1" 200 -
+[2026-10-12 12:09:27] [INFO] [app:63] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=21]
+[2026-10-12 12:09:28] [INFO] [httpx:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents "HTTP/1.1 200 OK"
+[2026-10-12 12:09:28] [INFO] [chroma_db_config.py:162] - Vector query returned 3 relevant chunk(s).
+[2026-10-12 12:09:29] [INFO] [servam_api.py:86] - Requesting answer using model 'sarvam-105b' (history_turns=5, context_len=620 chars)
+[2026-10-12 12:09:40] [INFO] [httpx:1025] - HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-10-12 12:09:40] [INFO] [servam_api.py:114] - Sarvam response generated successfully in 11037 ms (63 chars)
+[2026-10-12 12:09:40] [INFO] [db:84] - Saved conversation entry [ID: 8] for session 'default' (question: give me a python cord...)
+[2026-10-12 12:09:40] [INFO] [app:110] - /get_response completed in 12243 ms [session_id='default', reply_len=63, sources_count=1]
+[2026-10-12 12:09:40] [INFO] [werkzeug:97] - 127.0.0.1 - - [12/Oct/2026 12:09:40] "POST /get_response HTTP/1.1" 200 -
+[2026-10-12 12:10:07] [INFO] [app:63] - Incoming /get_response [session_id='default', ip='127.0.0.1', message_len=13]
+[2026-10-12 12:10:08] [INFO] [httpx:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents "HTTP/1.1 200 OK"
+[2026-10-12 12:10:08] [INFO] [chroma_db_config.py:162] - Vector query returned 3 relevant chunk(s).
+[2026-10-12 12:10:08] [INFO] [servam_api.py:86] - Requesting answer using model 'sarvam-105b' (history_turns=5, context_len=630 chars)
+[2026-10-12 12:10:11] [INFO] [httpx:1025] - HTTP Request: POST https://api.sarvam.ai/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-10-12 12:10:11] [INFO] [servam_api.py:114] - Sarvam response generated successfully in 2840 ms (109 chars)
+[2026-10-12 12:10:11] [INFO] [db:84] - Saved conversation entry [ID: 9] for session 'default' (question: my name sagil...)
+[2026-10-12 12:10:11] [INFO] [app:110] - /get_response completed in 4034 ms [session_id='default', reply_len=109, sources_count=1]
+[2026-10-12 12:10:11] [INFO] [werkzeug:97] - 127.0.0.1 - - [12/Oct/2026 12:10:11] "POST /get_response HTTP/1.1" 200 -
